@@ -1,4 +1,4 @@
-import { render, waitFor } from '@testing-library/angular';
+import { render } from '@testing-library/angular';
 import { IWeightStore } from './IWeightStore';
 import { WeightInputComponent } from './weight-input.component';
 import { MockProvider } from 'ng-mocks';
@@ -9,7 +9,7 @@ it('should add an entry', async () => {
   const fixture = await render(WeightInputComponent, {
     providers: [
       MockProvider(IWeightStore, {
-        add: jest.fn(),
+        addWeight: jest.fn(),
       }),
     ],
   });
@@ -22,5 +22,5 @@ it('should add an entry', async () => {
   await userEvent.type(input, '10');
   await userEvent.click(button);
 
-  expect(store.add).toHaveBeenCalledWith(10);
+  expect(store.addWeight).toHaveBeenCalledWith(10);
 });

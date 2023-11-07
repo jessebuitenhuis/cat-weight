@@ -12,7 +12,7 @@ import { NgFor } from '@angular/common';
   `,
 })
 export class WeightListComponent {
-  entries = this._weightStore.entries;
+  entries = this._weightStore.value;
 
   constructor(private _weightStore: IWeightStore) {}
 }

@@ -1,16 +1,17 @@
 import { IWeightEntry } from './IWeightEntry';
 import { IWeightStore } from './IWeightStore';
-import { Store } from './data/Store';
+import { EntityStore } from './data/EntityStore';
 
-export class WeightStore extends Store<IWeightEntry[]> implements IWeightStore {
-  readonly entries = this.value;
-
+export class WeightStore
+  extends EntityStore<IWeightEntry>
+  implements IWeightStore
+{
   constructor() {
     super([], { name: 'weight' });
   }
 
-  add(weight: number): void {
+  addWeight(weight: number): void {
     const entry = { weight, date: new Date() };
-    this.set([...this.value(), entry]);
+    this.add(entry);
   }
 }

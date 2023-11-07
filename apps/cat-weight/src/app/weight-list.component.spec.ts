@@ -24,7 +24,7 @@ it('should show a list of weights', async () => {
   await render(WeightListComponent, {
     providers: [
       MockProvider(IWeightStore, {
-        entries: signal([entry1, entry2, entry3]),
+        value: signal([entry1, entry2, entry3]),
       }),
     ],
   });
