@@ -1,14 +1,16 @@
-import { signal } from '@angular/core';
 import { IWeightEntry } from './IWeightEntry';
 import { IWeightStore } from './IWeightStore';
+import { Store } from './data/Store';
 
-export class WeightStore implements IWeightStore {
-  private _data = signal<IWeightEntry[]>([]);
+export class WeightStore extends Store<IWeightEntry[]> implements IWeightStore {
+  readonly entries = this.value;
 
-  readonly entries = this._data.asReadonly();
+  constructor() {
+    super([], { name: 'weight' });
+  }
 
   add(weight: number): void {
     const entry = { weight, date: new Date() };
-    this._data.update((data) => [...data, entry]);
+    this.set([...this.value(), entry]);
   }
 }
