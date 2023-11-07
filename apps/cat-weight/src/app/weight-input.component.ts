@@ -22,7 +22,6 @@ export class WeightInputComponent {
   constructor(private _weightStore: IWeightStore) {}
 
   add(): void {
-    console.log(this.weightCtrl.value);
     this._weightStore.add(this.weightCtrl.value);
   }
 }
