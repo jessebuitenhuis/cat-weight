@@ -8,7 +8,9 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      display: ['group-hover'],
+    },
   },
   plugins: [],
 };

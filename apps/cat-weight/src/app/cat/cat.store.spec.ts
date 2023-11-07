@@ -18,6 +18,6 @@ it('should remove a cat', () => {
   const store = TestBed.inject(CatStore);
   store.addByName('Fluffy');
   store.addByName('Mittens');
-  store.removeByName('Fluffy');
+  store.remove((x) => x.name === 'Fluffy');
   expect(store.value()).toEqual([{ name: 'Mittens' }]);
 });
