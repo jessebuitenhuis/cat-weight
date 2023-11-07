@@ -2,7 +2,7 @@
   "name": "cat-weight",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "cat-weight",
+  "prefix": "app",
   "sourceRoot": "apps/cat-weight/src",
   "tags": [],
   "targets": {
