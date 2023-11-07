@@ -1,40 +1,54 @@
-import { Mock } from 'ng-mocks';
-import { EntityStore } from './EntityStore';
-import { TestBed } from '@angular/core/testing';
-import { provideStore } from './provideStore';
-import { StoreFactory } from './StoreFactory';
-import { IStoreFactory } from './IStoreFactory';
 import { Injectable } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EntityStore } from './EntityStore';
+import { provideMockStore } from './provideMockStore';
 
 @Injectable({
   providedIn: 'root',
 })
-class MockStore extends EntityStore<string> {
+class MockStore extends EntityStore<IItem> {
   constructor() {
     super([], { name: 'test' });
   }
 }
 
+interface IItem {
+  name: string;
+}
+
+const itemA: IItem = { name: 'a' };
+const itemB: IItem = { name: 'b' };
+const itemC: IItem = { name: 'c' };
+
 beforeEach(() =>
   TestBed.configureTestingModule({
-    providers: [{ provide: IStoreFactory, useClass: StoreFactory }],
+    providers: [provideMockStore()],
   })
 );
 
 it('should add entities', () => {
   const store = TestBed.inject(MockStore);
-  store.add('itema');
-  store.add('itemb');
-  store.add('itemc');
-  expect(store.value()).toEqual(['itema', 'itemb', 'itemc']);
+  store.add(itemA);
+  store.add(itemB);
+  store.add(itemC);
+  expect(store.value()).toEqual([itemA, itemB, itemC]);
 });
 
-it('should remove entities', () => {
+it('should remove an entity by reference', () => {
   const store = TestBed.inject(MockStore);
-  store.add('itema');
-  store.add('itemb');
-  store.add('itemc');
+  store.add(itemA);
+  store.add(itemB);
+  store.add(itemC);
 
-  store.remove('itemb');
-  expect(store.value()).toEqual(['itema', 'itemc']);
+  store.remove(itemB);
+  expect(store.value()).toEqual([itemA, itemC]);
+});
+
+it('should remove an entity by compareFn', () => {
+  const store = TestBed.inject(MockStore);
+  store.add(itemA);
+  store.add(itemB);
+
+  store.remove((item) => item.name === 'a');
+  expect(store.value()).toEqual([itemB]);
 });

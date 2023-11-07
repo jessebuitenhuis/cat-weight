@@ -9,7 +9,17 @@ export abstract class EntityStore<T>
     this.set([...this.value(), entity]);
   }
 
-  remove(entity: T): void {
-    this.set(this.value().filter((e) => e !== entity));
+  remove(compareFn: (entity: T) => boolean): void;
+  remove(entity: T): void;
+  remove(entityOrCompareFn: T | ((entity: T) => boolean)): void {
+    const compareFn =
+      entityOrCompareFn instanceof Function
+        ? entityOrCompareFn
+        : (e: T) => e === entityOrCompareFn;
+    this._removeByCompareFn(compareFn);
+  }
+
+  private _removeByCompareFn(compareFn: (item: T) => boolean): void {
+    this.set(this.value().filter((item) => !compareFn(item)));
   }
 }
