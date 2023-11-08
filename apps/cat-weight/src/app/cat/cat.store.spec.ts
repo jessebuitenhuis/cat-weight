@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { CatStore } from './cat.store';
-import { provideMockStore } from '../data/provideMockStore';
+import { provideMockStore } from '@cat-weight/util/data';
 
 beforeEach(() =>
   TestBed.configureTestingModule({

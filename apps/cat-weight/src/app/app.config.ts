@@ -4,9 +4,9 @@ import {
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { provideWeights } from './provideWeights';
-import { provideStore } from './data/provideStore';
-import { provideCat } from './cat/provideCat';
+import { provideWeights } from './weight';
+import { provideCat } from './cat';
+import { provideStore } from '@cat-weight/util/data';
 
 export const appConfig: ApplicationConfig = {
   providers: [

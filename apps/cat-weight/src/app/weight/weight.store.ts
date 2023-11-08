@@ -1,6 +1,6 @@
+import { EntityStore } from '@cat-weight/util/data';
 import { IWeightEntry } from './IWeightEntry';
 import { IWeightStore } from './IWeightStore';
-import { EntityStore } from './data/EntityStore';
 
 export class WeightStore
   extends EntityStore<IWeightEntry>

@@ -1,4 +1,4 @@
-import { EntityStore } from '../data/EntityStore';
+import { EntityStore } from '@cat-weight/util/data';
 import { ICat } from './ICat';
 import { ICatStore } from './ICatStore';
 

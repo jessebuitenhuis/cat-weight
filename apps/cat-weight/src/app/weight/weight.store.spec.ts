@@ -8,5 +8,5 @@ it('should add an entry', () => {
   service.add(entry);
   service.add(entry2);
 
-  expect(service.entries()).toEqual([entry, entry2]);
+  expect(service.value()).toEqual([entry, entry2]);
 });
