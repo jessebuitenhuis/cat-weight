@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@cat-weight/ui/core": ["ui/core/src/index.ts"],
       "@cat-weight/util/data": ["util/data/src/index.ts"]
     }
   },

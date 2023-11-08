@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { TabItems } from '../ui/tab.items';
 import { ICatStore } from './ICatStore';
 import { NgForOf } from '@angular/common';
 import { ICat } from './ICat';
+import { TabItems } from '@cat-weight/ui/core';
 
 @Component({
   selector: 'app-cat-nav',
