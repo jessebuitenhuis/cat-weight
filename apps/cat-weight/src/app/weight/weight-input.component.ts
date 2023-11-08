@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { IWeightStore } from './IWeightStore';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
@@ -13,15 +12,15 @@ import { CommonModule } from '@angular/common';
       placeholder="Enter weight in kg"
       [formControl]="weightCtrl"
     />
-    <button (click)="add()">Add</button>
+    <button (click)="addWeight()">Add</button>
   `,
 })
 export class WeightInputComponent {
+  @Output() add = new EventEmitter<number>();
+
   weightCtrl = new FormControl(0, { nonNullable: true });
 
-  constructor(private _weightStore: IWeightStore) {}
-
-  add(): void {
-    this._weightStore.addWeight(this.weightCtrl.value);
+  addWeight(): void {
+    this.add.emit(this.weightCtrl.value);
   }
 }

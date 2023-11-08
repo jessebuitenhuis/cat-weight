@@ -15,7 +15,7 @@ export class CatStore extends EntityStore<ICat> implements ICatStore {
     this.add({ id, name });
   }
 
-  findById(id: string) {
+  findById(id: string | null) {
     return this.find((cat) => cat.id === id);
   }
 }

@@ -1,6 +1,7 @@
 import { EntityStore } from '@cat-weight/util/data';
 import { IWeightEntry } from './IWeightEntry';
 import { IWeightStore } from './IWeightStore';
+import { Signal, computed } from '@angular/core';
 
 export class WeightStore
   extends EntityStore<IWeightEntry>
@@ -10,8 +11,14 @@ export class WeightStore
     super([], { name: 'weight' });
   }
 
-  addWeight(weight: number): void {
-    const entry = { weight, date: new Date() };
+  addWeight(catId: string, weight: number): void {
+    const entry = { catId, weight, date: new Date() };
     this.add(entry);
+  }
+
+  findByCatId(catId: string | null): Signal<IWeightEntry[]> {
+    return computed(() =>
+      this.value().filter((entry) => entry.catId === catId)
+    );
   }
 }

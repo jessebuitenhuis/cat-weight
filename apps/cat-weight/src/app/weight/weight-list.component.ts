@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IWeightStore } from './IWeightStore';
 import { CommonModule, DatePipe, NgFor } from '@angular/common';
 import { IWeightEntry } from './IWeightEntry';
@@ -8,7 +8,6 @@ import { IWeightEntry } from './IWeightEntry';
   standalone: true,
   imports: [NgFor, DatePipe, CommonModule],
   template: `
-    <h1>Weight List</h1>
     <table>
       <thead>
         <tr>
@@ -18,11 +17,11 @@ import { IWeightEntry } from './IWeightEntry';
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let entry of entries()">
+        <tr *ngFor="let entry of weights">
           <td>{{ entry.date | date }}</td>
           <td>{{ entry.weight }}</td>
           <td>
-            <button (click)="remove(entry)">Remove</button>
+            <button (click)="remove.emit(entry)">Remove</button>
           </td>
         </tr>
       </tbody>
@@ -30,11 +29,6 @@ import { IWeightEntry } from './IWeightEntry';
   `,
 })
 export class WeightListComponent {
-  entries = this._weightStore.value;
-
-  constructor(private _weightStore: IWeightStore) {}
-
-  remove(entry: IWeightEntry) {
-    this._weightStore.remove(entry);
-  }
+  @Input() weights: IWeightEntry[] = [];
+  @Output() remove = new EventEmitter<IWeightEntry>();
 }

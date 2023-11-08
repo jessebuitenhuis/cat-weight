@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
     <app-tabs>
       <a
         appTab
-        [routerLink]="['cat', cat.id]"
+        [routerLink]="cat.id"
         *ngFor="let cat of cats()"
         class="group flex"
       >

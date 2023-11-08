@@ -6,5 +6,5 @@ export abstract class ICatStore {
   abstract addByName(name: string): void;
   abstract remove(cat: ICat): void;
   abstract cats: Signal<ICat[]>;
-  abstract findById(id: string): Signal<ICat | undefined>;
+  abstract findById(id: string | null): Signal<ICat | undefined>;
 }
