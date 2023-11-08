@@ -1,3 +1,4 @@
+import { Signal, computed } from '@angular/core';
 import { IEntityStore } from './IEntityStore';
 import { Store } from './Store';
 
@@ -17,6 +18,10 @@ export abstract class EntityStore<T>
         ? entityOrCompareFn
         : (e: T) => e === entityOrCompareFn;
     this._removeByCompareFn(compareFn);
+  }
+
+  find(compareFn: (entity: T) => boolean): Signal<T | undefined> {
+    return computed(() => this.value().find(compareFn));
   }
 
   private _removeByCompareFn(compareFn: (item: T) => boolean): void {

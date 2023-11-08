@@ -13,12 +13,13 @@ class MockStore extends EntityStore<IItem> {
 }
 
 interface IItem {
+  id: string;
   name: string;
 }
 
-const itemA: IItem = { name: 'a' };
-const itemB: IItem = { name: 'b' };
-const itemC: IItem = { name: 'c' };
+const itemA: IItem = { id: 'a', name: 'name-a' };
+const itemB: IItem = { id: 'b', name: 'name-b' };
+const itemC: IItem = { id: 'c', name: 'name-c' };
 
 beforeEach(() =>
   TestBed.configureTestingModule({
@@ -34,21 +35,39 @@ it('should add entities', () => {
   expect(store.value()).toEqual([itemA, itemB, itemC]);
 });
 
-it('should remove an entity by reference', () => {
-  const store = TestBed.inject(MockStore);
-  store.add(itemA);
-  store.add(itemB);
-  store.add(itemC);
+describe('Find', () => {
+  it('should find a single entity by compareFn and keep it up to date', () => {
+    const store = TestBed.inject(MockStore);
+    store.add(itemA);
+    store.add(itemB);
 
-  store.remove(itemB);
-  expect(store.value()).toEqual([itemA, itemC]);
+    const result = store.find((item) => item.id === 'b');
+    expect(result()).toEqual(itemB);
+
+    const updatedB = { ...itemB, name: 'updated' };
+
+    store.set([itemA, updatedB]);
+    expect(result()).toEqual(updatedB);
+  });
 });
 
-it('should remove an entity by compareFn', () => {
-  const store = TestBed.inject(MockStore);
-  store.add(itemA);
-  store.add(itemB);
+describe('Remove', () => {
+  it('should remove an entity by reference', () => {
+    const store = TestBed.inject(MockStore);
+    store.add(itemA);
+    store.add(itemB);
+    store.add(itemC);
 
-  store.remove((item) => item.name === 'a');
-  expect(store.value()).toEqual([itemB]);
+    store.remove(itemB);
+    expect(store.value()).toEqual([itemA, itemC]);
+  });
+
+  it('should remove an entity by compareFn', () => {
+    const store = TestBed.inject(MockStore);
+    store.add(itemA);
+    store.add(itemB);
+
+    store.remove((item) => item.id === 'a');
+    expect(store.value()).toEqual([itemB]);
+  });
 });
