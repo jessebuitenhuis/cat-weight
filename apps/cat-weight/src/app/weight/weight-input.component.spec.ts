@@ -1,20 +1,17 @@
 import { render } from '@testing-library/angular';
-import { IWeightStore } from './IWeightStore';
-import { WeightInputComponent } from './weight-input.component';
-import { MockProvider } from 'ng-mocks';
-import { TestBed } from '@angular/core/testing';
 import { userEvent } from '@testing-library/user-event';
+import { WeightInputComponent } from './weight-input.component';
 
 it('should add an entry', async () => {
-  const fixture = await render(WeightInputComponent, {
-    providers: [
-      MockProvider(IWeightStore, {
-        addWeight: jest.fn(),
-      }),
-    ],
-  });
+  const addSpy = jest.fn();
 
-  const store = TestBed.inject(IWeightStore);
+  const fixture = await render(WeightInputComponent, {
+    componentOutputs: {
+      add: {
+        emit: addSpy,
+      } as any,
+    },
+  });
 
   const input = fixture.getByRole('spinbutton') as HTMLInputElement;
   const button = fixture.getByRole('button');
@@ -22,5 +19,5 @@ it('should add an entry', async () => {
   await userEvent.type(input, '10');
   await userEvent.click(button);
 
-  expect(store.addWeight).toHaveBeenCalledWith(10);
+  expect(addSpy).toHaveBeenCalledWith(10);
 });
