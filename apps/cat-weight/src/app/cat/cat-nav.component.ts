@@ -10,13 +10,16 @@ import { ICat } from './ICat';
   imports: [TabItems, NgForOf],
   template: `
     <app-tabs>
-      <app-tab *ngFor="let cat of cats()" class="group flex"
-        ><div class="grow">{{ cat.name }}</div>
-        <button class="hidden group-hover:block" (click)="removeCat(cat)">
+      <button appTab *ngFor="let cat of cats()" class="group flex">
+        <div class="grow">{{ cat.name }}</div>
+        <button
+          class="opacity-0 group-hover:opacity-100"
+          (click)="removeCat(cat)"
+        >
           X
-        </button></app-tab
-      >
-      <app-tab [grow]="false" (click)="addCat()">+</app-tab>
+        </button>
+      </button>
+      <button appTab [grow]="false" (click)="addCat()">+</button>
     </app-tabs>
   `,
 })
