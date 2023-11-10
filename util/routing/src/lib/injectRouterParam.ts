@@ -3,6 +3,7 @@ import { IRouterParams } from './IRouterParams';
 
 export function injectRouterParam(name: string): Signal<string | null> {
   const routerParams = inject(IRouterParams);
+  console.log(routerParams);
   return routerParams.getParam(name);
 }
 

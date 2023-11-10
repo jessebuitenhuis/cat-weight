@@ -2,7 +2,7 @@ import { Injectable, Signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { IRouterParams } from './IRouterParams';
-import { toSignal } from './toSignal';
+import { toSignal } from '@cat-weight/util/core';
 
 @Injectable()
 export class RouterParams implements IRouterParams {
