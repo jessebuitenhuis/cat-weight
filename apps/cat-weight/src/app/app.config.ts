@@ -1,15 +1,12 @@
-import { ApplicationConfig, InjectionToken } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
 import {
-  ActivatedRoute,
   provideRouter,
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { provideStore } from '@cat-weight/util/data';
+import { provideRouterParams } from '@cat-weight/util/routing';
 import { appRoutes } from './app.routes';
 import { provideWeights } from './weight';
-import { provideRouterParams } from '@cat-weight/util/routing';
-
-export const ActivatedRouteAlias = new InjectionToken('ActivatedRouteAlias');
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +14,5 @@ export const appConfig: ApplicationConfig = {
     provideWeights(),
     provideStore(),
     provideRouterParams(),
-    { provide: ActivatedRouteAlias, useExisting: ActivatedRoute },
   ],
 };

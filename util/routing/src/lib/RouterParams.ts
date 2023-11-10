@@ -1,13 +1,10 @@
-import { Injectable, Signal } from '@angular/core';
+import { Signal, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { IRouterParams } from './IRouterParams';
 import { toSignal } from '@cat-weight/util/core';
 
-@Injectable()
 export class RouterParams implements IRouterParams {
-  constructor(private _activatedRoute: ActivatedRoute) {}
-
   getParam(name: string): Signal<string | null> {
     return this._getParam$('paramMap', name);
   }
@@ -20,7 +17,9 @@ export class RouterParams implements IRouterParams {
     mapName: 'paramMap' | 'queryParamMap',
     name: string
   ): Signal<string | null> {
-    const value$ = this._activatedRoute[mapName].pipe(
+    const activatedRoute = inject(ActivatedRoute);
+
+    const value$ = activatedRoute[mapName].pipe(
       map((paramMap) => paramMap.get(name))
     );
     return toSignal(value$);
