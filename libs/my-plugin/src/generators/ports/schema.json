@@ -4,15 +4,15 @@
   "title": "",
   "type": "object",
   "properties": {
-    "project": {
+    "feature": {
       "type": "string",
       "description": "",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "For which project?"
+      "x-prompt": "For which feature?"
     }
   },
-  "required": ["project"]
+  "required": ["feature"]
 }

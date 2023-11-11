@@ -1,3 +1,3 @@
 export interface PortsGeneratorSchema {
-  project: string;
+  feature: string;
 }

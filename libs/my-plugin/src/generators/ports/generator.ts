@@ -6,14 +6,17 @@ export async function portsGenerator(
   tree: Tree,
   options: PortsGeneratorSchema
 ) {
-  const root = `libs/feature/${options.project}/ports`;
-  const name = `feature-${options.project}-ports`;
+  const root = `libs/feature/${options.feature}/ports`;
+  const name = `feature-${options.feature}-ports`;
 
   await libraryGenerator(tree, {
     name,
     directory: root,
     tags: `access:public,type:feature`,
     projectNameAndRootFormat: 'as-provided',
+    unitTestRunner: 'none',
+    bundler: 'none',
+    minimal: true,
   });
 }
 
