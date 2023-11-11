@@ -11,7 +11,7 @@ beforeEach(() =>
 it('should add a cat', () => {
   const store = TestBed.inject(CatStore);
   store.addByName('Fluffy');
-  expect(store.value()).toEqual([{ name: 'Fluffy' }]);
+  expect(store.value()).toEqual([{ id: expect.any(String), name: 'Fluffy' }]);
 });
 
 it('should remove a cat', () => {
@@ -19,5 +19,5 @@ it('should remove a cat', () => {
   store.addByName('Fluffy');
   store.addByName('Mittens');
   store.remove((x) => x.name === 'Fluffy');
-  expect(store.value()).toEqual([{ name: 'Mittens' }]);
+  expect(store.value()).toEqual([{ id: expect.any(String), name: 'Mittens' }]);
 });

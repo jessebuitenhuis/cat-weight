@@ -37,9 +37,9 @@ const renderComp = () =>
 it('should show a list of weights', async () => {
   await renderComp();
 
-  expect(screen.getByText(/10/));
-  expect(screen.getByText(/11/));
-  expect(screen.getByText(/12/));
+  expect(screen.getByText('10'));
+  expect(screen.getByText('11'));
+  expect(screen.getByText('12'));
 });
 
 it('should remove a weight', async () => {
