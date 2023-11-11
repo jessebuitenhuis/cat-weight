@@ -9,6 +9,11 @@
       "factory": "./src/generators/ports/generator",
       "schema": "./src/generators/ports/schema.json",
       "description": "ports generator"
+    },
+    "adapters": {
+      "factory": "./src/generators/adapters/generator",
+      "schema": "./src/generators/adapters/schema.json",
+      "description": "adapters generator"
     }
   }
 }

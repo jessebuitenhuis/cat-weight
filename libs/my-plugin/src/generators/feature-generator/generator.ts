@@ -1,5 +1,6 @@
 import { libraryGenerator } from '@nx/angular/generators';
 import { Tree } from '@nx/devkit';
+import adaptersGenerator from '../adapters/generator';
 import { portsGenerator } from '../ports/generator';
 import { FeatureGeneratorGeneratorSchema } from './schema';
 
@@ -21,8 +22,10 @@ export async function featureGeneratorGenerator(
 
   const generatePortsAndAdapters = options.ports ?? true;
 
-  if (generatePortsAndAdapters)
+  if (generatePortsAndAdapters) {
     await portsGenerator(tree, { feature: options.name });
+    await adaptersGenerator(tree, { feature: options.name });
+  }
 }
 
 export default featureGeneratorGenerator;
