@@ -6,7 +6,8 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@nx/angular": "17.x.x"
+    "@nx/angular": "17.x.x",
+    "@nx/js": "17.x.x"
   },
   "type": "commonjs",
   "main": "./src/index.js",

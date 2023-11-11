@@ -7,7 +7,7 @@ export async function featureGeneratorGenerator(
   options: FeatureGeneratorGeneratorSchema
 ) {
   const root = `libs/feature/${options.name}/internal`;
-  const name = `feature-${options.name}`;
+  const name = `feature-${options.name}-internal`;
 
   await libraryGenerator(tree, {
     name,

@@ -4,6 +4,11 @@
       "factory": "./src/generators/feature-generator/generator",
       "schema": "./src/generators/feature-generator/schema.json",
       "description": "feature-generator generator"
+    },
+    "ports": {
+      "factory": "./src/generators/ports/generator",
+      "schema": "./src/generators/ports/schema.json",
+      "description": "ports generator"
     }
   }
 }
