@@ -12,6 +12,12 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
+    },
+    "ports": {
+      "type": "boolean",
+      "description": "",
+      "default": true,
+      "x-prompt": "Include a ports and adapters library?"
     }
   },
   "required": ["name"]

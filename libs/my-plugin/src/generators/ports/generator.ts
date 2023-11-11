@@ -17,6 +17,7 @@ export async function portsGenerator(
     unitTestRunner: 'none',
     bundler: 'none',
     minimal: true,
+    importPath: `@cat-weight/feature/${options.feature}`,
   });
 }
 
