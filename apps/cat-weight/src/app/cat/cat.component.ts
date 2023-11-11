@@ -1,10 +1,6 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Inject, computed } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {
-  injectRouterParam,
-  provideRouterParams,
-} from '@cat-weight/util/routing';
+import { Component, computed } from '@angular/core';
+import { injectRouterParam } from '@cat-weight/util/routing';
 import { WeightInputComponent, WeightListComponent } from '../weight';
 import { IWeightStore } from '../weight/IWeightStore';
 
@@ -21,9 +17,13 @@ export class CatComponent {
   id = injectRouterParam('id');
   weights = computed(() => this._weightStore.findByCatId(this.id())());
 
+  private thing = 'hi';
+
   constructor(private _weightStore: IWeightStore) {}
 
   addWeight(weight: number) {
+    const thing = 'bl';
+
     const catId = this.id();
     if (!catId) throw new Error('No cat id found');
 
