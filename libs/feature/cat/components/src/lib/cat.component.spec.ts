@@ -1,8 +1,7 @@
 import { Signal, signal } from '@angular/core';
-import { ICatWeightStore } from '@cat-weight/feature/cat';
+import { ICatWeightEntry, ICatWeightStore } from '@cat-weight/feature/cat';
 import { MockRouterParams, updateRouterParams } from '@cat-weight/util/routing';
 import { render, screen } from '@testing-library/angular';
-import { ICatWeightEntry } from 'libs/feature/cat/ports/src/lib/ICatWeightEntry';
 import { CatComponent } from './cat.component';
 
 class WeightStoreMock implements Partial<ICatWeightStore> {
