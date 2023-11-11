@@ -13,6 +13,7 @@ it('should add an entry', async () => {
   });
 
   const input = fixture.getByRole('spinbutton') as HTMLInputElement;
+
   const button = fixture.getByRole('button');
 
   await userEvent.type(input, '10');
