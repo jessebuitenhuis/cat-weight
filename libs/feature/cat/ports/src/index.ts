@@ -1,1 +1,3 @@
-export * from './lib/feature-cat-ports';
+export * from './lib/ICat';
+export * from './lib/ICatEntityStore';
+export * from './lib/ICatStore';

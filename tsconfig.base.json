@@ -25,6 +25,7 @@
       "@cat-weight/feature/cat/internal": [
         "libs/feature/cat/internal/src/index.ts"
       ],
+      "@cat-weight/feature/cat/shell": ["libs/feature/cat/shell/src/index.ts"],
       "@cat-weight/feature/weight": ["libs/feature/weight/ports/src/index.ts"],
       "@cat-weight/feature/weight/adapters": [
         "libs/feature/weight/adapters/src/index.ts"

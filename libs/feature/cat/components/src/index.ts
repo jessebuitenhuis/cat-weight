@@ -1,1 +1,2 @@
-export * from './lib/feature-cat-components.module';
+export * from './lib/cat-page.component';
+export * from './lib/cat.component';

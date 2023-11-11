@@ -1,9 +1,8 @@
 import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ICat, ICatStore } from '@cat-weight/feature/cat';
 import { TabItems } from '@cat-weight/ui/core';
-import { ICat } from './ICat';
-import { ICatStore } from './ICatStore';
 
 @Component({
   selector: 'app-cat-nav',
