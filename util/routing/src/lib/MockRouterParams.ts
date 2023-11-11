@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { Params } from '@angular/router';
 import { MockProvider } from 'ng-mocks';
 import { IRouterParams } from './IRouterParams';
-import { IRouterParamsFactory } from './IRouterParamsFactory';
 
 interface RouterParamsMockOptions {
   params?: Params;
@@ -34,9 +33,7 @@ export function MockRouterParams(opts: RouterParamsMockOptions) {
   const mock = new RouterParamsMock(opts);
 
   return [
-    MockProvider(IRouterParamsFactory, {
-      getRouterParams: () => mock,
-    }),
+    MockProvider(IRouterParams, mock),
     MockProvider(RouterParamsMock, mock),
   ];
 }

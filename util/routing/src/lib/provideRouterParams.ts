@@ -1,12 +1,12 @@
 import { Provider } from '@angular/core';
-import { IRouterParamsFactory } from './IRouterParamsFactory';
-import { RouterParamsFactory } from './RouterParamsFactory';
+import { IRouterParams } from './IRouterParams';
+import { RouterParams } from './RouterParams';
 
 export function provideRouterParams(): Provider[] {
   return [
     {
-      provide: IRouterParamsFactory,
-      useClass: RouterParamsFactory,
+      provide: IRouterParams,
+      useClass: RouterParams,
     },
   ];
 }

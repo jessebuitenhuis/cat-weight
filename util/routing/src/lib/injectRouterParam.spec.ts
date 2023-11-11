@@ -17,7 +17,6 @@ class MockService {
 
 beforeEach(() =>
   TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
     providers: [
       MockRouterParams({
         params: { [PARAM_NAME]: 'one' },
