@@ -15,6 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@cat-weight/feature/weight": ["libs/feature/weight/ports/src/index.ts"],
+      "@cat-weight/feature/weight/adapters": [
+        "libs/feature/weight/adapters/src/index.ts"
+      ],
+      "@cat-weight/feature/weight/components": [
+        "libs/feature/weight/components/src/index.ts"
+      ],
+      "@cat-weight/feature/weight/internal": [
+        "libs/feature/weight/internal/src/index.ts"
+      ],
       "@cat-weight/my-plugin": ["libs/my-plugin/src/index.ts"],
       "@cat-weight/ui/core": ["ui/core/src/index.ts"],
       "@cat-weight/util/core": ["util/core/src/index.ts"],

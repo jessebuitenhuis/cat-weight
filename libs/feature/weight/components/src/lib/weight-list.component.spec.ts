@@ -1,7 +1,7 @@
+import { IWeightEntry } from '@cat-weight/feature/weight';
 import { MockEventEmitter } from '@cat-weight/util/testing';
 import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { IWeightEntry } from './IWeightEntry';
 import { WeightListComponent } from './weight-list.component';
 
 const entry1: IWeightEntry = {

@@ -1,6 +1,6 @@
 import { CommonModule, DatePipe, NgFor } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IWeightEntry } from './IWeightEntry';
+import { IWeightEntry } from '@cat-weight/feature/weight';
 
 @Component({
   selector: 'app-weight-list',

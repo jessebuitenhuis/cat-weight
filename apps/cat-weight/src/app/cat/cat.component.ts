@@ -1,8 +1,11 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, computed } from '@angular/core';
+import { IWeightStore } from '@cat-weight/feature/weight';
+import {
+  WeightInputComponent,
+  WeightListComponent,
+} from '@cat-weight/feature/weight/components';
 import { injectRouterParam } from '@cat-weight/util/routing';
-import { WeightInputComponent, WeightListComponent } from '../weight';
-import { IWeightStore } from '../weight/IWeightStore';
 
 @Component({
   selector: 'app-cat',
@@ -23,6 +26,6 @@ export class CatComponent {
     const catId = this.id();
     if (!catId) throw new Error('No cat id found');
 
-    this._weightStore.addWeight(catId, weight);
+    this._weightStore.add(catId, weight);
   }
 }
