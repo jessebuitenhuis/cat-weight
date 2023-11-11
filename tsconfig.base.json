@@ -18,7 +18,8 @@
       "@cat-weight/ui/core": ["ui/core/src/index.ts"],
       "@cat-weight/util/core": ["util/core/src/index.ts"],
       "@cat-weight/util/data": ["util/data/src/index.ts"],
-      "@cat-weight/util/routing": ["util/routing/src/index.ts"]
+      "@cat-weight/util/routing": ["util/routing/src/index.ts"],
+      "@cat-weight/util/testing": ["util/testing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

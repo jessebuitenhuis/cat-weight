@@ -13,7 +13,10 @@
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore",
         "{workspaceRoot}/eslint.config.js"
-      ]
+      ],
+      "options": {
+        "maxWarnings": 0
+      }
     },
     "test": {
       "cache": true,

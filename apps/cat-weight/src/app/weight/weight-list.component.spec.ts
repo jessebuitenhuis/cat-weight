@@ -1,3 +1,4 @@
+import { MockEventEmitter } from '@cat-weight/util/testing';
 import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { IWeightEntry } from './IWeightEntry';
@@ -21,7 +22,7 @@ const entry3: IWeightEntry = {
   weight: 12,
 };
 
-const removeSpy = jest.fn();
+const removeMock = MockEventEmitter();
 
 const renderComp = () =>
   render(WeightListComponent, {
@@ -29,9 +30,7 @@ const renderComp = () =>
       weights: [entry1, entry2, entry3],
     },
     componentOutputs: {
-      remove: {
-        emit: removeSpy,
-      } as any,
+      remove: removeMock,
     },
   });
 
@@ -48,5 +47,5 @@ it('should remove a weight', async () => {
   const deleteButton = screen.queryAllByRole('button')[0];
   await userEvent.click(deleteButton);
 
-  expect(removeSpy).toHaveBeenCalledWith(entry1);
+  expect(removeMock.emit).toHaveBeenCalledWith(entry1);
 });

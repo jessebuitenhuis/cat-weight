@@ -17,13 +17,9 @@ export class CatComponent {
   id = injectRouterParam('id');
   weights = computed(() => this._weightStore.findByCatId(this.id())());
 
-  private thing = 'hi';
-
   constructor(private _weightStore: IWeightStore) {}
 
   addWeight(weight: number) {
-    const thing = 'bl';
-
     const catId = this.id();
     if (!catId) throw new Error('No cat id found');
 

@@ -1,3 +1,4 @@
+import { MockEventEmitter } from '@cat-weight/util/testing';
 import { render } from '@testing-library/angular';
 import { userEvent } from '@testing-library/user-event';
 import { WeightInputComponent } from './weight-input.component';
@@ -7,9 +8,7 @@ it('should add an entry', async () => {
 
   const fixture = await render(WeightInputComponent, {
     componentOutputs: {
-      add: {
-        emit: addSpy,
-      } as any,
+      add: MockEventEmitter(addSpy),
     },
   });
 
