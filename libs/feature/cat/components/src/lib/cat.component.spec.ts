@@ -1,40 +1,41 @@
 import { Signal, signal } from '@angular/core';
-import { IWeightEntry, IWeightStore } from '@cat-weight/feature/weight';
+import { ICatWeightStore } from '@cat-weight/feature/cat';
 import { MockRouterParams, updateRouterParams } from '@cat-weight/util/routing';
 import { render, screen } from '@testing-library/angular';
+import { ICatWeightEntry } from 'libs/feature/cat/ports/src/lib/ICatWeightEntry';
 import { CatComponent } from './cat.component';
 
-class WeightStoreMock implements Partial<IWeightStore> {
-  private _weightA: IWeightEntry = {
+class WeightStoreMock implements Partial<ICatWeightStore> {
+  private _weightA: ICatWeightEntry = {
     catId: 'cat1',
     weight: 1,
     date: new Date(),
   };
 
-  private _weightB: IWeightEntry = {
+  private _weightB: ICatWeightEntry = {
     catId: 'cat1',
     weight: 2,
     date: new Date(),
   };
 
-  private _weightC: IWeightEntry = {
+  private _weightC: ICatWeightEntry = {
     catId: 'cat2',
     weight: 3,
     date: new Date(),
   };
 
-  private _weightD: IWeightEntry = {
+  private _weightD: ICatWeightEntry = {
     catId: 'cat2',
     weight: 4,
     date: new Date(),
   };
 
-  private _mockWeights: Record<string, IWeightEntry[]> = {
+  private _mockWeights: Record<string, ICatWeightEntry[]> = {
     cat1: [this._weightA, this._weightB],
     cat2: [this._weightC, this._weightD],
   };
 
-  findByCatId(catId: string): Signal<IWeightEntry[]> {
+  findByCatId(catId: string): Signal<ICatWeightEntry[]> {
     return signal(this._mockWeights[catId]);
   }
 }
@@ -42,7 +43,7 @@ class WeightStoreMock implements Partial<IWeightStore> {
 it('should show the weights of the selected cat', async () => {
   const { detectChanges } = await render(CatComponent, {
     providers: [
-      { provide: IWeightStore, useClass: WeightStoreMock },
+      { provide: ICatWeightStore, useClass: WeightStoreMock },
       MockRouterParams({
         params: { id: 'cat1' },
       }),
