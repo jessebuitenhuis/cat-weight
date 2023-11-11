@@ -1,0 +1,16 @@
+{
+  "name": "feature-cat-ports",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/feature/cat/ports/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/feature/cat/ports/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["access:public", "type:feature"]
+}
