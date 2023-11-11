@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { WeightInputComponent, WeightListComponent } from './weight';
 import { CatNavComponent } from './cat';
+import { WeightInputComponent, WeightListComponent } from './weight';
 
 @Component({
   standalone: true,

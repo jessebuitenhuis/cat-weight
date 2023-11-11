@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IWeightStore } from './IWeightStore';
 import { CommonModule, DatePipe, NgFor } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IWeightEntry } from './IWeightEntry';
 
 @Component({

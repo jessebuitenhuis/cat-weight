@@ -1,7 +1,7 @@
 import { EntityStore } from '@cat-weight/util/data';
+import { v4 as uuid } from 'uuid';
 import { ICat } from './ICat';
 import { ICatStore } from './ICatStore';
-import { v4 as uuid } from 'uuid';
 
 export class CatStore extends EntityStore<ICat> implements ICatStore {
   cats = this.value;

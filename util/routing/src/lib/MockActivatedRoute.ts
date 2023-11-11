@@ -1,4 +1,4 @@
-import { MockProvider } from 'ng-mocks';
+import { TestBed } from '@angular/core/testing';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -6,8 +6,8 @@ import {
   Params,
   convertToParamMap,
 } from '@angular/router';
+import { MockProvider } from 'ng-mocks';
 import { BehaviorSubject } from 'rxjs';
-import { TestBed } from '@angular/core/testing';
 
 interface ActivatedRouteMockOptions {
   params?: Params;

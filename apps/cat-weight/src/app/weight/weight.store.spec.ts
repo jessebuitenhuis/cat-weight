@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@cat-weight/util/data';
 import { IWeightEntry } from './IWeightEntry';
 import { WeightStore } from './weight.store';
-import { provideMockStore } from '@cat-weight/util/data';
 
 beforeEach(() =>
   TestBed.configureTestingModule({

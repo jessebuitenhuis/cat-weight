@@ -1,7 +1,7 @@
 import { Provider, signal } from '@angular/core';
-import { IStoreFactory } from './IStoreFactory';
 import { IStore } from './IStore';
 import { IStoreConfig } from './IStoreConfig';
+import { IStoreFactory } from './IStoreFactory';
 
 class MockStore<T> implements IStore<T> {
   value = signal(this._initialValue);

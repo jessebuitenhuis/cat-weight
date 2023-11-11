@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CatNavComponent } from './cat-nav.component';
 import { RouterOutlet } from '@angular/router';
+import { CatNavComponent } from './cat-nav.component';
 
 @Component({
   selector: 'app-cat-page',

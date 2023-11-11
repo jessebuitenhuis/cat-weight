@@ -1,9 +1,9 @@
+import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { IStoreFactory } from './IStoreFactory';
 import { LocalStorageStore } from './LocalStorageStore';
 import { Store } from './Store';
-import { IStoreFactory } from './IStoreFactory';
 import { StoreFactory } from './StoreFactory';
-import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 class MockStore extends Store<string> {

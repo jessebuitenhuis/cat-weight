@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
+import { CatPageComponent } from './cat-page.component';
 import { CatComponent } from './cat.component';
 import { provideCat } from './provideCat';
-import { CatPageComponent } from './cat-page.component';
 
 export const CatRoutes: Routes = [
   {

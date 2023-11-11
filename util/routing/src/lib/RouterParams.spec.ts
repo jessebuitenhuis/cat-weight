@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterParams } from './RouterParams';
-import { MockActivatedRoute, updateActivatedRoute } from './MockActivatedRoute';
 import { Injector, runInInjectionContext } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { MockActivatedRoute, updateActivatedRoute } from './MockActivatedRoute';
+import { RouterParams } from './RouterParams';
 
 const PARAM_NAME = 'p';
 const QUERY_PARAM_NAME = 'qp';

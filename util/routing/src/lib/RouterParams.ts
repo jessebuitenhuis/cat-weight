@@ -1,8 +1,8 @@
 import { Signal, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { toSignal } from '@cat-weight/util/core';
 import { map } from 'rxjs';
 import { IRouterParams } from './IRouterParams';
-import { toSignal } from '@cat-weight/util/core';
 
 export class RouterParams implements IRouterParams {
   getParam(name: string): Signal<string | null> {

@@ -1,7 +1,7 @@
+import { Signal, computed } from '@angular/core';
 import { EntityStore } from '@cat-weight/util/data';
 import { IWeightEntry } from './IWeightEntry';
 import { IWeightStore } from './IWeightStore';
-import { Signal, computed } from '@angular/core';
 
 export class WeightStore
   extends EntityStore<IWeightEntry>

@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
-import { IStoreFactory } from './IStoreFactory';
-import { IStoreConfig } from './IStoreConfig';
 import { IStore } from './IStore';
+import { IStoreConfig } from './IStoreConfig';
+import { IStoreFactory } from './IStoreFactory';
 
 export abstract class Store<T> implements IStore<T> {
   private _storeFactory = inject(IStoreFactory);
