@@ -19,6 +19,9 @@
       "@cat-weight/feature/cat/adapters": [
         "libs/feature/cat/adapters/src/index.ts"
       ],
+      "@cat-weight/feature/cat/components": [
+        "libs/feature/cat/components/src/index.ts"
+      ],
       "@cat-weight/feature/cat/internal": [
         "libs/feature/cat/internal/src/index.ts"
       ],
