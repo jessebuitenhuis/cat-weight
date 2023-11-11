@@ -35,7 +35,7 @@ it('should convert an observable to a signal and start with initialValue of a di
 
   runInInjectionContext(injector, () => {
     const output = toSignal(source$, 1);
-    expect(output()).toEqual('initial');
+    expect(output()).toEqual(1);
 
     source$.next('one');
     expect(output()).toEqual('one');
