@@ -38,9 +38,15 @@
       ],
       "@cat-weight/my-plugin": ["libs/my-plugin/src/index.ts"],
       "@cat-weight/ui/core": ["ui/core/src/index.ts"],
+      "@cat-weight/util/routing": ["libs/util/routing/ports/src/index.ts"],
+      "@cat-weight/util/routing/adapters": [
+        "libs/util/routing/adapters/src/index.ts"
+      ],
+      "@cat-weight/util/routing/testing": [
+        "libs/util/routing/testing/src/index.ts"
+      ],
       "@cat-weight/util/core": ["util/core/src/index.ts"],
       "@cat-weight/util/data": ["util/data/src/index.ts"],
-      "@cat-weight/util/routing": ["util/routing/src/index.ts"],
       "@cat-weight/util/testing": ["util/testing/src/index.ts"]
     }
   },

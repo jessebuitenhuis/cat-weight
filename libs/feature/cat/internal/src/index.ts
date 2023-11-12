@@ -1,1 +1,1 @@
-export * from './lib/provideCatStore';
+export * from './lib/provideCatDomain';

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { ClassProvider, Injectable } from '@angular/core';
 import { ICat, ICatEntityStore, ICatStore } from '@cat-weight/feature/cat';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()
-export class CatStore implements ICatStore {
+class CatStore implements ICatStore {
   cats = this._entityStore.value;
 
   constructor(private _entityStore: ICatEntityStore) {}
@@ -21,3 +21,8 @@ export class CatStore implements ICatStore {
     this._entityStore.remove(cat);
   }
 }
+
+export const CAT_STORE_PROVIDER: ClassProvider = {
+  provide: ICatStore,
+  useClass: CatStore,
+};

@@ -1,4 +1,4 @@
-import { Injectable, Provider } from '@angular/core';
+import { ClassProvider, Injectable } from '@angular/core';
 import { ICat, ICatEntityStore } from '@cat-weight/feature/cat';
 import { EntityStore } from '@cat-weight/util/data';
 
@@ -12,6 +12,7 @@ class CatEntityStoreAdapter
   }
 }
 
-export function provideCatEntityStore(): Provider[] {
-  return [{ provide: ICatEntityStore, useClass: CatEntityStoreAdapter }];
-}
+export const CAT_ENTITY_STORE_ADAPTER_PROVIDER: ClassProvider = {
+  provide: ICatEntityStore,
+  useClass: CatEntityStoreAdapter,
+};

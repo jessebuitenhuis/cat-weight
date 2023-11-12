@@ -1,18 +1,15 @@
 import { Routes } from '@angular/router';
-import { provideCatEntityStore } from '@cat-weight/feature/cat/adapters';
 import {
   CatComponent,
   CatPageComponent,
 } from '@cat-weight/feature/cat/components';
-import { provideCatStore } from '@cat-weight/feature/cat/internal';
-import { provideWeights } from '@cat-weight/feature/weight/adapters';
+import { provideCatFeature } from './provideCatFeature';
 
 export const CatRoutes: Routes = [
   {
     path: '',
     component: CatPageComponent,
-    providers: [provideCatStore(), provideCatEntityStore(), provideWeights()],
-
+    providers: [provideCatFeature()],
     children: [
       {
         path: ':id',

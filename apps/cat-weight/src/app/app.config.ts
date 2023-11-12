@@ -1,16 +1,12 @@
 import { ApplicationConfig } from '@angular/core';
-import {
-  provideRouter,
-  withEnabledBlockingInitialNavigation,
-} from '@angular/router';
+import { withEnabledBlockingInitialNavigation } from '@angular/router';
 import { provideStore } from '@cat-weight/util/data';
-import { provideRouterParams } from '@cat-weight/util/routing';
+import { provideRouter } from '@cat-weight/util/routing/adapters';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
     provideStore(),
-    provideRouterParams(),
   ],
 };

@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ICat, ICatEntityStore } from '@cat-weight/feature/cat';
-import { CatStore } from './cat.store';
+import { ICat, ICatEntityStore, ICatStore } from '@cat-weight/feature/cat';
+import { CAT_STORE_PROVIDER } from './cat.store';
 
 @Injectable({ providedIn: 'root' })
 class CatEntityStoreMock implements ICatEntityStore {
@@ -14,14 +14,14 @@ class CatEntityStoreMock implements ICatEntityStore {
 beforeEach(() =>
   TestBed.configureTestingModule({
     providers: [
-      CatStore,
+      CAT_STORE_PROVIDER,
       { provide: ICatEntityStore, useExisting: CatEntityStoreMock },
     ],
   })
 );
 
 it('should add a cat', () => {
-  const store = TestBed.inject(CatStore);
+  const store = TestBed.inject(ICatStore);
   const entityStore = TestBed.inject(ICatEntityStore);
 
   store.addByName('Fluffy');
@@ -32,7 +32,7 @@ it('should add a cat', () => {
 });
 
 it('should remove a cat', () => {
-  const store = TestBed.inject(CatStore);
+  const store = TestBed.inject(ICatStore);
   const entityStore = TestBed.inject(CatEntityStoreMock);
 
   const fluffy = { id: '1', name: 'Fluffy' };

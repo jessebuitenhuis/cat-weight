@@ -1,8 +1,8 @@
 import { Signal, computed, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Params } from '@angular/router';
+import { IRouterParams } from '@cat-weight/util/routing';
 import { MockProvider } from 'ng-mocks';
-import { IRouterParams } from './IRouterParams';
 
 interface RouterParamsMockOptions {
   params?: Params;

@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
   displayName: 'util-routing',
-  preset: '../../jest.preset.js',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/util/routing',
+  coverageDirectory: '../../../../coverage/libs/util/routing/ports',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

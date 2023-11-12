@@ -1,7 +1,11 @@
 import { Injector, runInInjectionContext } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { MockActivatedRoute, updateActivatedRoute } from './MockActivatedRoute';
-import { RouterParams } from './RouterParams';
+import { IRouterParams } from '@cat-weight/util/routing';
+import {
+  MockActivatedRoute,
+  updateActivatedRoute,
+} from '@cat-weight/util/routing/testing';
+import { ROUTER_PARAMS_ADAPTER_PROVIDER } from './RouterParamsAdapter';
 
 const PARAM_NAME = 'p';
 const QUERY_PARAM_NAME = 'qp';
@@ -9,7 +13,7 @@ const QUERY_PARAM_NAME = 'qp';
 beforeEach(() =>
   TestBed.configureTestingModule({
     providers: [
-      RouterParams,
+      ROUTER_PARAMS_ADAPTER_PROVIDER,
       MockActivatedRoute({
         params: { [PARAM_NAME]: 'param-one' },
         queryParams: { [QUERY_PARAM_NAME]: 'query-one' },
@@ -19,7 +23,7 @@ beforeEach(() =>
 );
 
 it('should get the params from the activated route and sync them', () => {
-  const sut = TestBed.inject(RouterParams);
+  const sut = TestBed.inject(IRouterParams);
   const injector = TestBed.inject(Injector);
 
   runInInjectionContext(injector, () => {

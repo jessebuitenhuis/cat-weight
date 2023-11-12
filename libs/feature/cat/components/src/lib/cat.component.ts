@@ -1,6 +1,5 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, computed } from '@angular/core';
-import { ICatWeightStore } from '@cat-weight/feature/cat';
+import { Component, effect } from '@angular/core';
+import { ICatDisplayer } from '@cat-weight/feature/cat';
 import {
   WeightInputComponent,
   WeightListComponent,
@@ -10,22 +9,22 @@ import { injectRouterParam } from '@cat-weight/util/routing';
 @Component({
   selector: 'app-cat',
   standalone: true,
-  imports: [AsyncPipe, WeightInputComponent, WeightListComponent],
+  imports: [WeightInputComponent, WeightListComponent],
   template: `
     <app-weight-input (add)="addWeight($event)"></app-weight-input>
     <app-weight-list [weights]="weights()"></app-weight-list>
   `,
 })
 export class CatComponent {
-  id = injectRouterParam('id');
-  weights = computed(() => this._catWeightStore.findByCatId(this.id())());
+  private _id = injectRouterParam('id');
 
-  constructor(private _catWeightStore: ICatWeightStore) {}
+  weights = this._catDisplayer.getWeights(this._id);
+
+  constructor(private _catDisplayer: ICatDisplayer) {
+    effect(() => console.log(this.weights()));
+  }
 
   addWeight(weight: number) {
-    const catId = this.id();
-    if (!catId) throw new Error('No cat id found');
-
-    this._catWeightStore.add(catId, weight);
+    this._catDisplayer.addWeight(this._id(), weight);
   }
 }

@@ -1,10 +1,10 @@
-import { Signal, inject } from '@angular/core';
+import { ClassProvider, Signal, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@cat-weight/util/core';
+import { IRouterParams } from '@cat-weight/util/routing';
 import { map } from 'rxjs';
-import { IRouterParams } from './IRouterParams';
 
-export class RouterParams implements IRouterParams {
+class RouterParamsAdapter implements IRouterParams {
   getParam(name: string): Signal<string | null> {
     return this._getParam$('paramMap', name);
   }
@@ -25,3 +25,8 @@ export class RouterParams implements IRouterParams {
     return toSignal(value$);
   }
 }
+
+export const ROUTER_PARAMS_ADAPTER_PROVIDER: ClassProvider = {
+  provide: IRouterParams,
+  useClass: RouterParamsAdapter,
+};

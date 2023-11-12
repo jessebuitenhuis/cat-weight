@@ -1,10 +1,13 @@
-import { Signal, signal } from '@angular/core';
-import { ICatWeightEntry, ICatWeightStore } from '@cat-weight/feature/cat';
-import { MockRouterParams, updateRouterParams } from '@cat-weight/util/routing';
+import { Signal, computed } from '@angular/core';
+import { ICatDisplayer, ICatWeightEntry } from '@cat-weight/feature/cat';
+import {
+  MockRouterParams,
+  updateRouterParams,
+} from '@cat-weight/util/routing/testing';
 import { render, screen } from '@testing-library/angular';
 import { CatComponent } from './cat.component';
 
-class WeightStoreMock implements Partial<ICatWeightStore> {
+class CatDisplayerMock implements ICatDisplayer {
   private _weightA: ICatWeightEntry = {
     catId: 'cat1',
     weight: 1,
@@ -34,15 +37,17 @@ class WeightStoreMock implements Partial<ICatWeightStore> {
     cat2: [this._weightC, this._weightD],
   };
 
-  findByCatId(catId: string): Signal<ICatWeightEntry[]> {
-    return signal(this._mockWeights[catId]);
+  getWeights(catId: Signal<string>): Signal<ICatWeightEntry[]> {
+    return computed(() => this._mockWeights[catId()]);
   }
+
+  addWeight = jest.fn();
 }
 
 it('should show the weights of the selected cat', async () => {
   const { detectChanges } = await render(CatComponent, {
     providers: [
-      { provide: ICatWeightStore, useClass: WeightStoreMock },
+      { provide: ICatDisplayer, useClass: CatDisplayerMock },
       MockRouterParams({
         params: { id: 'cat1' },
       }),

@@ -1,1 +1,1 @@
-export * from './lib/provideCat';
+export * from './lib/provideCatAdapters';
