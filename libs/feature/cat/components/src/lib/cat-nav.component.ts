@@ -9,7 +9,7 @@ import { TabItems } from '@cat-weight/ui/core';
   standalone: true,
   imports: [TabItems, NgForOf, RouterLink],
   template: `
-    <app-tabs>
+    <ui-tabs>
       <a
         appTab
         [routerLink]="cat.id"
@@ -24,8 +24,8 @@ import { TabItems } from '@cat-weight/ui/core';
           X
         </button>
       </a>
-      <button appTab [grow]="false" (click)="addCat()">+</button>
-    </app-tabs>
+      <button uiTab [grow]="false" (click)="addCat()">+</button>
+    </ui-tabs>
   `,
 })
 export class CatNavComponent {

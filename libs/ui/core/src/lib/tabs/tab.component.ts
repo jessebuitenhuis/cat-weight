@@ -2,7 +2,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'app-tab, [appTab]',
+  selector: 'ui-tab, [uiTab]',
   template: ` <ng-content></ng-content> `,
 })
 export class TabComponent {

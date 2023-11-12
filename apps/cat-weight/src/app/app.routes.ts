@@ -6,8 +6,4 @@ export const appRoutes: Route[] = [
     loadChildren: () =>
       import('@cat-weight/feature/cat/shell').then((x) => x.CatShellRoutes),
   },
-  {
-    path: '**',
-    redirectTo: 'cat',
-  },
 ];
