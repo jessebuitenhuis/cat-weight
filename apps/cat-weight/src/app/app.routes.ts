@@ -4,7 +4,7 @@ export const appRoutes: Route[] = [
   {
     path: 'cat',
     loadChildren: () =>
-      import('@cat-weight/feature/cat/shell').then((x) => x.CatRoutes),
+      import('@cat-weight/feature/cat/shell').then((x) => x.CatShellRoutes),
   },
   {
     path: '**',
