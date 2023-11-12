@@ -1,4 +1,4 @@
-import { Component, effect } from '@angular/core';
+import { Component } from '@angular/core';
 import { ICatDisplayer } from '@cat-weight/feature/cat';
 import {
   WeightInputComponent,
@@ -20,9 +20,7 @@ export class CatComponent {
 
   weights = this._catDisplayer.getWeights(this._id);
 
-  constructor(private _catDisplayer: ICatDisplayer) {
-    effect(() => console.log(this.weights()));
-  }
+  constructor(private _catDisplayer: ICatDisplayer) {}
 
   addWeight(weight: number) {
     this._catDisplayer.addWeight(this._id(), weight);
