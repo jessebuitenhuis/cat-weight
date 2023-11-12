@@ -1,7 +1,7 @@
 {
-  "name": "util-core",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "util/core/src",
+  "name": "util-testing",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/util/testing/src",
   "prefix": "cat-weight",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "util/core/jest.config.ts",
+        "jestConfig": "libs/util/testing/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,7 +24,10 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["util/core/**/*.ts", "util/core/**/*.html"]
+        "lintFilePatterns": [
+          "libs/util/testing/**/*.ts",
+          "libs/util/testing/**/*.html"
+        ]
       }
     }
   }

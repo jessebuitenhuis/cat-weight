@@ -1,7 +1,7 @@
 {
   "name": "ui-core",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "ui/core/src",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/core/src",
   "prefix": "app",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "ui/core/jest.config.ts",
+        "jestConfig": "libs/ui/core/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,7 +24,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["ui/core/**/*.ts", "ui/core/**/*.html"]
+        "lintFilePatterns": ["libs/ui/core/**/*.ts", "libs/ui/core/**/*.html"]
       }
     }
   }

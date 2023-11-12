@@ -1,7 +1,7 @@
 {
-  "name": "util-data",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "util/data/src",
+  "name": "util-core",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/util/core/src",
   "prefix": "cat-weight",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "util/data/jest.config.ts",
+        "jestConfig": "libs/util/core/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,7 +24,10 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["util/data/**/*.ts", "util/data/**/*.html"]
+        "lintFilePatterns": [
+          "libs/util/core/**/*.ts",
+          "libs/util/core/**/*.html"
+        ]
       }
     }
   }
